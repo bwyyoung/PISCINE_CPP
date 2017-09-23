@@ -1,0 +1,24 @@
+<application>
+  <component name="UsageTrigger">
+    <counts>
+      <entry feature="CreateFile.CreateFileAction" count="2" />
+      <entry feature="StripeButton[Version Control].shown" count="1" />
+      <entry feature="cidr.completion.qualified" count="222" />
+      <entry feature="cidr.completion.qualified.changeQualifyingToken.fromDereference" count="1" />
+      <entry feature="cidr.completion.qualified.changeQualifyingToken.fromDot" count="25" />
+      <entry feature="cidr.newFile" count="14" />
+      <entry feature="cidr.newFile.cppClass" count="4" />
+      <entry feature="cidr.newFile.source" count="7" />
+      <entry feature="ide.settings.Appearance" count="1" />
+      <entry feature="ide.settings.C/C++" count="2" />
+      <entry feature="ide.settings.CMake" count="1" />
+      <entry feature="ide.settings.Code_Style" count="16" />
+      <entry feature="ide.settings.Other_File_Types" count="2" />
+      <entry feature="ide.settings.Plugins" count="2" />
+      <entry feature="ideaapp.started" count="20" />
+      <entry feature="terminal.mac" count="47" />
+      <entry feature="welcome.screen.CreateCMakeProject" count="2" />
+      <entry feature="welcome.screen.OpenCPPProject" count="1" />
+    </counts>
+  </component>
+</application>

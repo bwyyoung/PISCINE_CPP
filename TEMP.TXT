@@ -1,0 +1,656 @@
+
+    // Pony entity
+    Pony {
+        material: AdsMaterial {
+            effect: shadowMapEffect
+            specularColor: Qt.rgba(0.5, 0.5, 0.5, 1.0)
+        }
+    }
+
+	Entity
+	{
+		Mesh
+		{
+		  id: mesh
+		  objectName: "Cat"
+		  source: "qrc:/Nyan Cat.obj"
+		}
+		Material
+		{
+		  id: material
+		  effect: ToonSilhouetteEffect { }
+		}
+		components: [ mesh, material ]
+	}
+
+  **  Plane entity
+  **  GroundPlane {
+  **      material: AdsMaterial {
+  **          effect: shadowMapEffect
+  **          diffuseColor: Qt.rgba(0.2, 0.5, 0.3, 1.0)
+  **          specularColor: Qt.rgba(0, 0, 0, 1.0)
+  **      }
+  **
+for (int i = 0; i < NumLargeRows; i++)
+		for (int j = 0; j < NumLargeColumns; j++)
+		{
+			this->data_store[NumSmallRows + i][NumSmallColumns + j].setReadOnly(true);
+			layout_small->addWidget(&this->data_store[NumSmallRows + i][NumSmallColumns + j], i, j);
+		}
+
+
+ //Initialize if stram
+        std::ifstream filess("/proc/stat");
+        std::string line;
+        i=0;
+        while (std::getline(filess, line))
+        {
+
+                //loop the cores
+                if (i <= (m_numberOfCores))
+                {
+
+                //storing the cache index
+                int currCacheIndex = m_cacheStartIndex-1;
+                if (currCacheIndex < 0)
+                {
+                    currCacheIndex = m_cacheSize -1;
+                }
+//                std::cout<<currCacheIndex<<std::endl;
+
+                    std::stringstream ss;
+                    //get the cpu name
+                    ss <<line;
+                    //Get different data usage
+                    ss >>m_tempStr;
+                    ss>>m_totalUser;
+                    ss>>m_totalUserLow;
+                    ss>>m_totalSys;
+                    ss>>m_totalIdle;
+
+
+                    //Compute the percentage
+                    if (m_totalUser < m_lastTotalUser[i] ||
+                        m_totalUserLow < m_lastTotalUserLow[i] ||
+                        m_totalSys < m_lastTotalSys[i] ||
+                        m_totalIdle < m_lastTotalIdle[i])
+                    {
+                        //Overflow detection. Just skip this value.
+                        m_percent = -1.0;
+                        m_percentages[i][currCacheIndex]=m_percent;
+                    }
+                    else
+                    {
+                        m_total = (m_totalUser -m_lastTotalUser[i]) +
+                                (m_totalUserLow - m_lastTotalUserLow[i]) +
+                            (m_totalSys - m_lastTotalSys[i]);
+                        m_percent = m_total;
+                        m_total += (m_totalIdle - m_lastTotalIdle[i]);
+
+                        //Check if we got a valid result
+                        if (m_total > 0 )
+                        {
+                            m_percent /= m_total;
+                        m_percent *= 100;
+                        }
+                        else
+                        {
+                            m_percent =0;
+                        }
+                        //store the data in correct cache index
+                        m_percentages[i][currCacheIndex]=m_percent;
+                    }
+
+                    //store the data in the cache for next iteration
+                    m_lastTotalUser[i] = m_totalUser;
+                    m_lastTotalUserLow[i] = m_totalUserLow;
+                    m_lastTotalSys[i] = m_totalSys;
+                    m_lastTotalIdle[i] = m_totalIdle;
+
+
+
+
+                }
+                else
+                {break;}
+                i++;
+        }
+
+        //loop the cache index
+        m_cacheStartIndex++;
+        if ( m_cacheStartIndex > (m_cacheSize -1))
+        {
+            m_cacheStartIndex = 0;
+        }
+
+Render_String_Block 0 0
+Render_String_Block 36 0
+Render_String_Block 72 0
+Render_String_Block 108 0
+Render_String_Block 144 0
+14
+
+
+Render_Terminal MODULE_CPU
+Render_Terminal MODULE_DISK
+Render_Terminal MODULE_MEMREGIONS
+Render_Terminal MODULE_NETWORK
+Render_Terminal MODULE_OS
+
+Render_Terminal MODULE_PROC
+Render_Terminal MODULE_RAM
+Render_Terminal MODULE_TIME
+Render_Terminal MODULE_VM
+
+
+
+Render_Terminal MODULE_CPU
+Render_Terminal MODULE_DISK
+Render_Terminal MODULE_MEMREGIONS
+Render_Terminal MODULE_NETWORK
+Render_Terminal MODULE_OS
+Render_Terminal MODULE_PROC
+Render_Terminal MODULE_RAM
+Render_Terminal MODULE_TIME
+Render_Terminal MODULE_VM
+Render_Terminal MODULE_CPU
+Render_Terminal MODULE_DISK
+Render_Terminal MODULE_MEMREGIONS
+Render_Terminal MODULE_NETWORK
+Render_Terminal MODULE_OS
+Render_Terminal MODULE_PROC
+Render_Terminal MODULE_RAM
+Render_Terminal MODULE_TIME
+Render_Terminal MODULE_VM
+Render_Terminal MODULE_CPU
+Render_Terminal MODULE_DISK
+Render_Terminal MODULE_MEMREGIONS
+Render_Terminal MODULE_NETWORK
+Render_Terminal MODULE_OS
+Render_Terminal MODULE_PROC
+Render_Terminal MODULE_RAM
+Render_Terminal MODULE_TIME
+Render_Terminal MODULE_VM
+___________________________________
+.............Hostname..............
+...................................
+...........e3r1p14.42.fr...........
+___________________________________
+..............OSinfo...............
+...................................
+...........Type: Darwin............
+..........Release: 16.1.0..........
+___________________________________
+...............Time................
+...................................
+...........Sat 21 Jan 17...........
+............01:16:32 PM............
+___________________________________
+................CPU................
+...................................
+.........Intel(R) Core(TM).........
+.......i5-6500 CPU @ 3.20GHz.......
+...........user: 32.83%............
+..........system: 28.35%...........
+...........idle: 38.80%............
+___________________________________
+................RAM................
+...................................
+..........Capacity: 8000M..........
+...........Usage: 8131M............
+___________________________________
+..............Network..............
+...................................
+..............PACKETS..............
+...........in: 10693235............
+...........out: 12182260...........
+___________________________________
+...............Disk................
+...................................
+...............DATA................
+...........read: 3670752...........
+...........write: 850127...........
+___________________________________
+.............Processes.............
+...................................
+.............302 total.............
+........5 running, 2 stuck.........
+....295 sleeping, 1971 threads.....
+___________________________________
+............MemRegions.............
+...................................
+............77056 total............
+..........3635M resident...........
+.....48M private, 571M shared......
+___________________________________
+................VM.................
+...................................
+............846G vsize.............
+.......618M framework vsize........
+........1005515(0) swapins.........
+........1513026(0) swapouts........
+___________________________________
+...............Pony................
+...................................
+.....                __..___ ......
+.....          _.-'____<'``  ......
+.....    ___.-`.-'`     ```_'......
+.....   /  \.'` __.----'','/.......
+.....  ( /  \_/` ,---''.' /  ......
+.....  | |    `,._\  ,'  /``'......
+..... /( '.  .'``'-`   .-.   ......
+.....( /\    | |``'.`._|.-:  ......
+.....|| (\_  ( (    \ _ | |  ......
+.....|| : \   \ \    ))\ \j  ......
+.....|( (, \   '.`--'/  ``-. ......
+.....' . \`.`.   ````  \__/  ......
+..... V(  \ `-\-,______.-'   ......
+.....__/\ .`.     /.^. /     ......
+.....    \|`.:   (/   V      ......
+.....         `   \          ......
+.....              |         ......
+.....              |         ......
+.....              |         ......
+.....          \__/          ......
+....._____\       \          ......
+.....|    |\       \         ......
+.....     | `--,    \        ......
+.....     |   /      l       ......
+.....      | (       |       ......
+.....      |  \      |       ......
+.....       \  `.___/        ......
+.....\_______)               ......
+___________________________________
+................Cat................
+...................................
+............  |\_._/|  ............
+............  | o o |  ............
+............  (  T  )  ............
+............ .^`-^-'^. ............
+............ `.  ;  .' ............
+............ | | | | | ............
+
+set(CMAKE_PREFIX_PATH ${CMAKE_CURRENT_SOURCE_DIR}/rush01/GKrellM/5.7/clang_64)
+
+#################################################################
+#Base QT directory
+set(QT_PATH "${CMAKE_CURRENT_SOURCE_DIR}/rush01/GKrellM/5.7/clang_64")
+set(QT_LIBRARIES Qt5::Core Qt5::Widgets Qt5::Gui)
+#Libraries required. Probably the same as above minus the '::'. find_package() will be called on these
+set(QT_LIBRARIES_REQUIRED Qt5Core Qt5Widgets Qt5Gui)
+#find packages
+set(CMAKE_PREFIX_PATH ${QT_MINGW})
+foreach(QT_LIBRARIES_REQUIRED ${QT_LIBRARIES_REQUIRED})
+	find_package( ${QT_LIBRARIES_REQUIRED} REQUIRED )
+endforeach()
+#################################################################
+
+set(CMAKE_PREFIX_PATH "${CMAKE_CURRENT_SOURCE_DIR}/rush01/GKrellM/5.7/clang_64")
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/rush01/GKrellM/5.7/clang_64/lib")
+
+
+#Qt5 paths
+#Qt5 library path
+set(QT5_LIB_DIR ${QT_PATH}/lib/cmake)
+#Qt5 individual libraries
+set(QT5_CORE ${QT_LIB_DIR}/Qt5Core)
+set(QT5_WIDGETS ${QT_LIB_DIR}/Qt5Widgets)
+set(QT5_GUI ${QT_LIB_DIR}/Qt5Gui)
+
+#Libraries to link to. The :: is for convenience
+set(QT_LIBRARIES Qt5::Core Qt5::Widgets Qt5::Gui)
+#Libraries required. Probably the same as above minus the '::'. find_package() will be called on these
+set(QT_LIBRARIES_REQUIRED Qt5Core Qt5Widgets Qt5Gui)
+
+
+
+#find packages
+foreach(QT_LIBRARIES_REQUIRED ${QT_LIBRARIES_REQUIRED})
+	find_package( ${QT_LIBRARIES_REQUIRED} REQUIRED )
+endforeach()
+
+
+template <class T, class S>
+S& getContainer(std::queue<T, S>& q)
+{
+	struct HackedQueue : private std::queue<T, S> {
+		static S& Container(std::queue<T, S>& q) {
+			return q.*&HackedQueue::c;
+			/**
+			 * http://stackoverflow.com/questions/1400856/i-cant-understand-this-line-dereferencing-an-address-of-private-member-variab
+			 * HackedQueue::c, which is just the name of a member variable.
+			 * Then you take &HackedQueue::c, which is a pointer to that member
+			 * variable. Next you take q, which is just an object reference.
+			 * Then you use the "bind pointer to member by reference" operator .*
+			 * to bind the member variable referred to by the member-variable
+			 * pointer using q as the this.
+			 * As to the private member issue, priority_queue::c is only protected,
+			 * not private, so it should come as no surprise that when you derive
+			 * from priority_queue, that you can access its protected members.
+			 */
+		}
+	};
+	return HackedQueue::Container(q);
+}
+
+template <class T, class S>
+S& getContainer(std::stack<T, S>& q)
+{
+	struct HackedQueue : private std::stack<T, S> {
+		static S& Container(std::stack<T, S>& q) {
+			return q.*&HackedQueue::c;
+		}
+	};
+	return HackedQueue::Container(q);
+}
+
+S& getContainer(std::priority_queue<U, S, C>& q)
+	{
+		struct HackedQueue : private std::priority_queue<U, S, C> {
+			static S& Container(std::priority_queue<U, S, C>& q) {
+				return q.*&HackedQueue::c;
+			}
+		};
+		return HackedQueue::Container(q);
+	}
+
+std::priority_queue<int> priority_queue_test;         // stack initialized to copy of deque
+			priority_queue.push(2);
+			priority_queue.push(10);
+			::easyfind(priority_queue, 2);
+
+
+void		test_deque()
+{
+	std::cout << "-----------DEQUE TEST-----------" << std::endl;
+	// Create a deque containing integers
+	std::deque<int> d;
+	// Add an integer to the beginning and end of the deque
+	d.push_front(2);
+	d.push_back(10);
+	try
+	{
+		std::cout << "trying to find 2" << std::endl;
+		::easyfind(d, 2);
+		std::cout << "trying to find 5" << std::endl;
+		::easyfind(d, 5);
+	}
+	catch (std::invalid_argument s)
+	{
+		std::cout << s.what() << std::endl;
+	}
+}
+
+void		test_vector()
+{
+	std::cout << "-----------VECTOR TEST-----------" << std::endl;
+	std::vector<int> v(5);
+	v[0] = 1;
+	v[1] = 6;
+	v[2] = 3;
+	v[3] = 3;
+	v[4] = 2;
+	try
+	{
+		std::cout << "values of vector: " << v[0] << " "
+				  << v[1] << " " << v[2] << " " << v[3] << " " << v[4] << std::endl;
+		std::cout << "trying to find 2" << std::endl;
+		::easyfind(v, 2);
+		std::cout << "trying to find 5" << std::endl;
+		::easyfind(v, 5);
+	}
+	catch (std::invalid_argument s)
+	{
+		std::cout << s.what() << std::endl;
+	}
+}
+
+void		test_list()
+{
+	std::cout << "-----------LIST TEST-----------" << std::endl;
+	try
+	{
+		{
+			std::list<int> second(4, 2);
+			std::cout << "trying to find 2" << std::endl;
+			::easyfind(second, 2);
+			std::cout << "trying to find 5" << std::endl;
+			::easyfind(second, 5);
+			std::list<double> second(4, 2);
+		}
+	}
+	catch (std::invalid_argument s)
+	{
+		std::cout << s.what() << std::endl;
+	}
+
+}
+
+
+	printf("%i|%c|%i\n",
+    			   this->current_cell_index,
+
+    			   this->instruction_list[this->current_instruction_index]->getType(),
+
+    			   this->current_instruction_index);
+
+	printf("~~%i|%c|%i|%i~~\n",
+			   this->current_cell_index,
+
+			   this->instruction_list[this->current_instruction_index]->getType(),
+			   this->CELL_CONTAINER[old_cell_index],
+			   this->current_instruction_index);
+		//if(this->current_instruction_index == 92)
+		//	exit(0);
+
+		//BRAIN FUCK
+
+http://stackoverflow.com/questions/7362723/time-based-loop-and-frame-based-loop
+
+#ifndef WORLD_WIDTH
+	#include <ncurses.h>
+	#include <unistd.h>
+	#include <stdio.h>
+	#include <time.h>
+	#define WORLD_WIDTH 50
+	#define WORLD_HEIGHT 20
+#endif
+int kbhit(void)
+{
+	int ch = getch();
+	printw("getch kbhit %i\n", ch);
+	if (ch != ERR) {
+		ungetch(ch);
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+void 	key(void)
+{
+	initscr();
+
+	cbreak();
+	noecho();
+	nodelay(stdscr, TRUE);
+
+	scrollok(stdscr, TRUE);
+	while (1) {
+		if (kbhit()) {
+			printw("Key pressed! It was: %d\n", getch());
+			refresh();
+		} else {
+			printw("No key pressed yet...\n");
+			refresh();
+			sleep(1);
+		}
+	}
+}
+
+int			test(void)
+{
+	WINDOW *snakeys_world;
+	int offsetx, offsety;
+
+	initscr();
+	refresh();
+
+	offsetx = (COLS - WORLD_WIDTH) / 2;
+	offsety = (LINES - WORLD_HEIGHT) / 2;
+
+	snakeys_world = newwin(WORLD_HEIGHT,
+						   WORLD_WIDTH,
+						   offsety,
+						   offsetx);
+
+	box(snakeys_world, 0 , 0);
+	//y //x
+	mvwprintw(snakeys_world, 0, 0, "S");
+	mvwprintw(snakeys_world, 19, 25, "E");
+
+	wrefresh(snakeys_world);
+
+	getch();
+
+	delwin(snakeys_world);
+
+	endwin();
+
+	return 0;
+}
+
+#define WORLD_WIDTH 50
+#define WORLD_HEIGHT 20
+
+int			main(void)
+{
+	WINDOW *snakeys_world;
+	int offsetx, offsety;
+
+	initscr();
+	refresh();
+
+	offsetx = (COLS - WORLD_WIDTH) / 2;
+	offsety = (LINES - WORLD_HEIGHT) / 2;
+
+	snakeys_world = newwin(WORLD_HEIGHT,
+						   WORLD_WIDTH,
+						   offsety,
+						   offsetx);
+
+	box(snakeys_world, 0 , 0);
+							//y //x
+	mvwprintw(snakeys_world, 0, 0, "S");
+	mvwprintw(snakeys_world, 19, 49, "E");
+
+	wrefresh(snakeys_world);
+
+	getch();
+
+	delwin(snakeys_world);
+
+	endwin();
+
+	return 0;
+}
+
+	while (++i < ENTITY_CONTAINER_MAX)
+    	{
+    		if (i < NUM_ENEMIES && this->CONTAINER_ENEMY[i].isActive())
+    		{
+    			this->Remove_Entity_Grid(&(this->CONTAINER_ENEMY[i]));
+    			this->CONTAINER_ENEMY[i].update();
+    			this->Update_Entity_Grid(&(this->CONTAINER_ENEMY[i]));
+    		}
+    		if (i < NUM_BULLETS && CONTAINER_BULLET[i].isActive())
+    		{
+    			this->Remove_Entity_Grid(&(this->CONTAINER_BULLET[i]));
+    			CONTAINER_BULLET[i].update();
+    			this->Update_Entity_Grid(&(this->CONTAINER_BULLET[i]));
+    		}
+
+    	}
+
+	std::cout.precision(30);
+	std::cout << num <<"|"<<( num * (1 << this->bits_fractional) )
+			  <<"|"
+			  << roundf(num * (1 << this->bits_fractional)) << std::endl;
+	int		test = ((int)(num))  << this->bits_fractional;
+	int		mask = 0xFF;
+	int		fraction =(int((num * (1 << 23)) >> (23 - 8))) & mask;
+	int		final = test + fraction;
+
+	// float  --->  000.0101010111111 * 11111111 = 00001010101.1111
+	// (1 << 8 times) --> 11111111
+	//num * 11111111
+	// (float << 1) ---> NON INTERDIT
+	// roundf---> 00001010101.1111 -->00001010101.0000 (maybe some ones at the end)
+	//roundf(11112345678.9999) ---> 11112345678
+	std::cout<<"compare " <<final <<"|"<<this->number <<"|"<< (final == number) <<"|"<< fraction<< std::endl;
+
+
+/** OLD CODE
+RECORD	**phonebook::resize(RECORD **m_records, size_t *cur_size, size_t addition)
+{
+	size_t		new_size = *cur_size + addition;
+	RECORD		**new_records = new t_record*[new_size];
+
+	for (size_t i = 0; i < new_size; i++)
+	{
+		new_records[i] = new t_record();
+		if (i < *cur_size)
+		{
+			std::memcpy(new_records[i], m_records[i], new_size * sizeof(RECORD));
+			delete(m_records[i]);
+		}
+	}
+	*cur_size = new_size;
+	delete [] m_records;
+	m_records = new_records;
+	return (m_records);
+}
+ */
+
+
+		t_record	**resize
+				(t_record **m_records, size_t *cur_size, size_t addition);
+
+
+	//INIT WORLD
+	WINDOW		*game_window;
+	int offsetx, offsety;
+	initscr();
+	noecho();
+	refresh();
+	offsetx = (COLS - WORLD_WIDTH) / 2;
+	offsety = (LINES - WORLD_HEIGHT) / 2;
+	game_window = newwin(WORLD_HEIGHT, WORLD_WIDTH, offsety, offsetx);
+	curs_set(FALSE); // Don't display a cursor
+
+	wrefresh(game_window);
+	int max_y = 0, max_x = 0;
+	int x = 0, y = 0;
+
+	getmaxyx(stdscr, max_y, max_x);
+
+	while(x < 30) {
+		clear(); // Clear the screen of all
+		// previously-printed characters
+		box(game_window, 0 , 0);
+		mvwprintw(game_window, y, x, "o"); // Print our "ball" at the current xy position
+		mvwprintw(game_window, 10, 10, "o"); // Print our "ball" at the current xy position
+		mvwprintw(game_window, 10, 20, "o"); // Print our "ball" at the current xy position
+		wrefresh(game_window);
+		usleep(DELAY); // Shorter delay between movements
+		x++; // Advance the ball to the right
+	}
+
+
+	getch();
+
+	delwin(game_window);
+	endwin();
+
+	return 0;

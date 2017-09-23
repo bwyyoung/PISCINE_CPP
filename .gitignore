@@ -1,0 +1,11 @@
+TEMP/*
+RES/*
+.idea
+TEMP
+RES
+.DS_Store
+cmake-build-debug
+QT.zip
+rush01/GKrellM/QT.zip
+rush01/GKrellM/5.7
+rush01/GKrellM/5.7/clang_64/plugins/sceneparsers/libassimpsceneio_debug.dylib.dSYM/Contents/Resources/DWARF/libassimpsceneio_debug.dylib

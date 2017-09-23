@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>textures/pattern_09/specular.webp</file>
+        <file>textures/pattern_09/normal.webp</file>
+        <file>textures/pattern_09/diffuse.webp</file>
+        <file>Nyan Cat.mtl</file>
+        <file>Nyan Cat.obj</file>
+        <file>high-res_fluttershy_pose_01_all-in-one.mtl</file>
+        <file>high-res_fluttershy_pose_01_all-in-one.OBJ</file>
+    </qresource>
+</RCC>

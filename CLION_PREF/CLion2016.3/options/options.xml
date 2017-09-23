@@ -1,0 +1,19 @@
+<application>
+  <component name="PropertiesComponent">
+    <property name="Default.savedEditorTheme" value="_@user_Default" />
+    <property name="evlsprt3.163" value="18" />
+    <property name="toolwindow.stripes.buttons.info.shown" value="true" />
+    <property name="DeploymentNotificationsComponent.WarnDisplayed.Java7&amp;Windows7FTPIssue" value="false" />
+    <property name="lastTip" value="1" />
+    <property name="settings.code.style.selected.tab.ObjectiveC" value="New File Extensions" />
+    <property name="settings.code.style.selected.tab.CMake" value="Tabs and Indents" />
+    <property name="selected.color.option.type" value="RIGHT_MARGIN_COLOR" />
+    <property name="go.tutorial.project.notification.shown" value="true" />
+    <property name="fileTypeChangedCounter" value="5" />
+    <property name="Copy.OpenInEditor" value="true" />
+    <property name="PLUGIN_FILTER" value="floobits&#10;f&#10;floo" />
+    <property name="ExpandBeforeRunStepsPanel" value="true" />
+    <property name="SplitFileEditor.Proportion" value="0.48551723" />
+    <property name="ignoreUltimateEdition" value="true" />
+  </component>
+</application>

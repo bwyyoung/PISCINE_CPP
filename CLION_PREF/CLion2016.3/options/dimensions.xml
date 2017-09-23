@@ -1,0 +1,20 @@
+<application>
+  <component name="DimensionService">
+    <location key="WELCOME_SCREEN.0.0.2560.1440" x="1279" y="230" />
+    <location key="com.intellij.ide.util.TipDialog.0.0.2560.1440" x="689" y="544" />
+    <location key="SettingsEditor.0.0.2560.1440" x="95" y="271" />
+    <location key="findTextDialog.0.0.2560.1440" x="574" y="41" />
+    <location key="replaceTextDialog.0.0.2560.1440" x="601" y="319" />
+    <location key="#com.intellij.fileTypes.FileTypeChooser.0.0.2560.1440" x="574" y="523" />
+    <location key="ReplaceDuplicatesPrompt.0.0.2560.1440" x="713" y="642" />
+    <location key="#Browse_Repositories.0.0.2560.1440" x="427" y="648" />
+    <location key="#Build_All.0.0.2560.1440" x="1013" y="456" />
+    <location key="#C/C++.0.0.2560.1440" x="879" y="339" />
+    <location key="ProcessPopupWindow.0.0.2560.1440" x="1543" y="1262" />
+    <size key="findTextDialog.0.0.2560.1440" width="1389" height="1276" />
+    <size key="replaceTextDialog.0.0.2560.1440" width="1395" height="1006" />
+    <size key="SettingsEditor.0.0.2560.1440" width="918" height="1165" />
+    <size key="ProcessPopupWindow.0.0.2560.1440" width="185" height="172" />
+    <size key="NewCMakeProjectWizard.0.0.2560.1440" width="500" height="200" />
+  </component>
+</application>

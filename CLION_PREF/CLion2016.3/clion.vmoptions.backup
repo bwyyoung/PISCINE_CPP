@@ -1,0 +1,17 @@
+-Xss2m
+-Xms256m
+-Xmx4000m
+-XX:NewSize=128m
+-XX:MaxNewSize=128m
+-XX:MaxPermSize=350m
+-XX:ReservedCodeCacheSize=96m
+-XX:+UseCodeCacheFlushing
+-XX:+UseCompressedOops
+-XX:+UseParallelGC
+-XX:+UseAdaptiveSizePolicy
+-XX:-UseConcMarkSweepGC
+-XX:SoftRefLRUPolicyMSPerMB=50
+-ea
+-Dsun.io.useCanonCaches=false
+-Djava.net.preferIPv4Stack=true
+
