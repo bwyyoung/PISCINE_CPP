@@ -42,7 +42,7 @@ endif
 all: $(NAME)
 
 $(NAME):
-		$(suppress_echo)export LD_LIBRARY_PATH=$(CUR_DIR)/$(DIR_PROJ)/5.7/clang_64/lib:$LD_LIBRARY_PATH;export PATH=$(CUR_DIR)/$(DIR_PROJ)/5.7/clang_64/bin:$(PATH); cd $(DIR_PROJ) && $(QMAKE) $(QT_CFG) $(redirect_to_null); make -s $(redirect_to_null)
+		$(suppress_echo)export PATH=$(CUR_DIR)/$(DIR_PROJ)/5.7/clang_64/bin:$(PATH); cd $(DIR_PROJ) && $(QMAKE) $(QT_CFG) $(redirect_to_null); make -s $(redirect_to_null)
 		@mv $(DIR_PROJ)/$(NAME) .
 		@$(RM) $(OBJ)
 		@$(RM) $(QMAKE_STASH)

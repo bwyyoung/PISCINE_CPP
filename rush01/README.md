@@ -1,8 +1,6 @@
 
 #ft_gkrellm
-##System Requirements
-- MacOS 10.11 and above
-- Cocoa
+[![Floobits Status](https://floobits.com/bwyyoung/PISCINE_C.svg)](https://floobits.com/bwyyoung/PISCINE_C/redirect)
 ##Instructions
 
 ~Quick Run~
@@ -13,8 +11,3 @@
 ~Recommended Actions~
 - Perform a full install with the included dmg.
 	- See images within Installer folder for clarification.
-
-![ft_gkrellm](./screenshots/16244772_856076634495806_146075627_o.png)
-![ft_gkrellm](./screenshots/16196820_856548394448630_758265039_o.jpg)
-![ft_gkrellm](./screenshots/16244929_856581694445300_945175031_o.jpg)
-![ft_gkrellm](./screenshots/16344520_858506724252797_1865950669_n.png)

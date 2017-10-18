@@ -13,7 +13,7 @@
 #ifndef NETWORKMODULE_HPP
 # define NETWORKMODULE_HPP
 
-# include <Vector>
+# include <vector>
 # include "IMonitorModule.hpp"
 
 class Module_Network : public IMonitorModule

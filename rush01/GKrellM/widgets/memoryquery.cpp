@@ -54,6 +54,14 @@ float MemoryQuery::getUsedMem()
 		return 0;
 	std::memcpy(word, RAM->getDatas()[0].c_str(), RAM->getDatas()[0].length());
 	long num = std::strtol(word, NULL, 0);
+	std::size_t found = RAM->getDatas()[0].find('G');
+	if (found != std::string::npos)
+	{
+		std::memset(word, '\0', 256);
+		std::string str_sub = RAM->getDatas()[0].substr(0, found);
+		std::memcpy(word, str_sub.c_str(), str_sub.length());
+		num = std::strtol(word, NULL, 0) * 1000;
+	}
 	return convertMemory(num);
 }
 
@@ -77,7 +85,7 @@ float MemoryQuery::getMemoryUsage()
 	{
 		currCacheIndex = m_cacheSize -1;
 	}
-	m_cache[currCacheIndex] =   percentage;
+	m_cache[currCacheIndex] = percentage;
 
 	//loop the cache index
 	m_cacheStartIndex++;
@@ -94,7 +102,6 @@ float MemoryQuery::convertMemory( long bytes)
 	switch(m_memoryUnit)
 	{
 		case 0 :
-
 			toReturn= float(bytes)/MEGA_BYTE_MULT;
 			break;
 		case 1 :

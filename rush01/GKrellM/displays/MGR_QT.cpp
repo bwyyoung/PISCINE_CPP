@@ -41,7 +41,7 @@ void					MGR_QT::init_grid()
 	widget_cpu->setSpeed(PerformanceWidget::MEDIUM_UPDATE);
 	widget_cpu->setDisplayMode(CpuWidget::drawMode::DRAW_GRAPH);
 	widget_cpu->setMulti(true);
-	widget_ram->setDisplayMode(RamWidget::DRAW_BARS);
+	widget_ram->setDisplayMode(RamWidget::drawMode::DRAW_GRAPH);
 	layout_graphics->addWidget(widget_cpu, 0, 0);
 	layout_graphics->addWidget(widget_ram, 0, 1);
 

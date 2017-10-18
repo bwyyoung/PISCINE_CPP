@@ -16,8 +16,8 @@
 # include <sys/time.h>
 # include <assert.h>
 # include <iostream>
-# include <Vector>
-# include <Deque>
+# include <vector>
+# include <deque>
 # include <ctime>
 # include <wchar.h>
 # include <sys/types.h>

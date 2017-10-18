@@ -25,17 +25,6 @@ QT		+= charts
 QT		+= datavisualization
 QT		+= 3dcore 3drender 3dinput 3dquick qml quick 3dquickextras 3dextras
 
-PRO_PATH=$$PWD
-
-CMAKE_PREFIX_PATH	= $$PRO_PATH/5.7/clang_64
-CMAKE_MODULE_PATH	= $$PRO_PATH/5.7/clang_64/lib
-Qt5_DIR				= $$PRO_PATH/5.7/clang_64/lib/cmake/Qt5
-
-# suppress the default RPATH if you wish
-#QMAKE_LFLAGS_RPATH=
-# add your own with quoting gyrations to make sure $ORIGIN gets to the command line unexpanded
-#QMAKE_LFLAGS += "-Wl,-rpath,\'\$$ORIGIN\GKrellM/5.7/clang_64/lib\'"
-QMAKE_RPATHDIR		= $$PRO_PATH/5.7/clang_64/lib
 
 
 MAKEFLAGS	+= --silent

@@ -13,7 +13,7 @@
 #ifndef MGR_MODULE_HPP
 #define MGR_MODULE_HPP
 #include "modules/Module_CAT.hpp"
-#include "modules/Module_Host.hpp"
+#include "modules/Module_HOST.hpp"
 #include "modules/Module_MemRegions.hpp"
 #include "modules/Module_DISK.hpp"
 #include "modules/Module_CPU.hpp"
