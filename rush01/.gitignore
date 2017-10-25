@@ -1,0 +1,8 @@
+*.o
+QT_CREATOR_BUILD
+REFERENCES
+GKrellM/5.7
+.qmake.stash
+ft_gkrellm
+GKrellM/Makefile
+moc_*
